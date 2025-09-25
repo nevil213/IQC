@@ -1,51 +1,110 @@
-# Question 4: Suppose $\vec{v}$ be any real three dimensional unit vector and we define an observable as follows: $\vec{v} \cdot \vec{\sigma} = v_1 \sigma_1 + v_2 \sigma_2 + v_3 \sigma_3$. Here $\vec{\sigma}$ is a shorthand for the vector of Pauli matrices: $\vec{\sigma} = (\sigma_1, \sigma_2, \sigma_3)$, where $\sigma_1 = X = \begin{pmatrix} 0 & 1 \\\\ 1 & 0 \end{pmatrix}$, $\sigma_2 = Y = \begin{pmatrix} 0 & -i \\\\ i & 0 \end{pmatrix}$, $\sigma_3 = Z = \begin{pmatrix} 1 & 0 \\\\ 0 & -1 \end{pmatrix}$. Show that $\vec{v} \cdot \vec{\sigma}$ has eigenvalues $\pm 1$, and that the projectors onto the corresponding eigenspaces are given by $P_\pm = \frac{I \pm \vec{v} \cdot \vec{\sigma}}{2}$.
+The observable $\vec{v} \cdot \vec{\sigma}$ has eigenvalues $\pm 1$. The matrices $P_\pm = \frac{I \pm \vec{v} \cdot \vec{\sigma}}{2}$ are indeed the correct projectors onto the corresponding eigenspaces. This is because the operator $\vec{v} \cdot \vec{\sigma}$ squares to the identity, a crucial property that dictates its eigenvalues and simplifies the verification of the projectors.
 
-## Solution
+***
 
-Below are multiple methods to show that $\vec{v} \cdot \vec{\sigma}$ has eigenvalues $\pm 1$ and the projectors are $P_\pm = \frac{I \pm \vec{v} \cdot \vec{\sigma}}{2}$, each explained in detail. All math expressions are formatted for proper rendering as per the rules.
+### **Question 4: Suppose $\vec{v}$ is any real three dimensional unit vector... Show that $\vec{v} \cdot \vec{\sigma}$ has eigenvalues $\pm 1$, and that the projectors onto the corresponding eigenspaces are given by $P_\pm = \frac{I \pm \vec{v} \cdot \vec{\sigma}}{2}$.**
+
+Let's define the observable as $M \equiv \vec{v} \cdot \vec{\sigma}$. A key property of this operator, for any unit vector $\vec{v}$, is that it squares to the identity matrix:
+
+$$M^2 = (\vec{v} \cdot \vec{\sigma})^2 = I$$
+
+This identity is central to both parts of the proof.
 
 ---
 
-**Method 1 – Direct Computation of Square**
+## **Part 1: Finding the Eigenvalues**
 
-Compute $(\vec{v} \cdot \vec{\sigma})^2$.
+We can find the eigenvalues of $M$ in two ways.
 
-Since $\sigma_i^2 = I$ for each $i$, and $\{\sigma_i, \sigma_j\} = 2 \delta_{ij} I$ for $i \neq j$,
+### **Solution 1.1: Using Operator Properties**
+
+Let $\lambda$ be an eigenvalue of $M$ with a corresponding non-zero eigenvector $|\psi\rangle$. By definition:
+
+$$M|\psi\rangle = \lambda|\psi\rangle$$
+
+If we apply the operator $M$ a second time to this equation:
+
+$$M^2|\psi\rangle = M(\lambda|\psi\rangle) = \lambda(M|\psi\rangle) = \lambda(\lambda|\psi\rangle) = \lambda^2|\psi\rangle$$
+
+But we know that $M^2 = I$, so we also have:
+
+$$M^2|\psi\rangle = I|\psi\rangle = |\psi\rangle$$
+
+Equating our two expressions for $M^2|\psi\rangle$:
+
+$$\lambda^2|\psi\rangle = |\psi\rangle$$
+
+Since $|\psi\rangle$ is an eigenvector and thus non-zero, we can conclude:
+
+$$\lambda^2 = 1 \implies \lambda = \pm 1$$
+
+Thus, the only possible eigenvalues of the measurement are $+1$ and $-1$.
+
+### **Solution 1.2: Using the Characteristic Equation**
+
+First, we write out the matrix for $M$:
 
 $$
-(\vec{v} \cdot \vec{\sigma})^2 = \sum_i v_i^2 \sigma_i^2 + \sum_{i \neq j} v_i v_j \sigma_i \sigma_j = \sum_i v_i^2 I + \sum_{i \neq j} v_i v_j \frac{1}{2} \{\sigma_i, \sigma_j\} = I \sum v_i^2 = I.
+M = v_1 X + v_2 Y + v_3 Z = \begin{pmatrix}
+v_3 & v_1 - iv_2 \\\\
+v_1 + iv_2 & -v_3
+\end{pmatrix}
 $$
 
-Thus eigenvalues $\pm 1$.
+The eigenvalues $\lambda$ are the roots of the characteristic equation $\det(M - \lambda I) = 0$:
 
-Projectors: Solve $(\vec{v} \cdot \vec{\sigma}) \lvert \psi_\pm \rangle = \pm \lvert \psi_\pm \rangle$, then $P_\pm = \lvert \psi_\pm \rangle \langle \psi_\pm \rvert$.
+$$
+\det \begin{pmatrix}
+v_3 - \lambda & v_1 - iv_2 \\\\
+v_1 + iv_2 & -v_3 - \lambda
+\end{pmatrix} = 0
+$$
 
-Standard result: $P_\pm = \frac{I \pm \vec{v} \cdot \vec{\sigma}}{2}$.
+$$(v_3 - \lambda)(-v_3 - \lambda) - (v_1 - iv_2)(v_1 + iv_2) = 0$$$$-(v_3^2 - \lambda^2) - (v_1^2 + v_2^2) = 0$$$$\lambda^2 - v_3^2 - v_1^2 - v_2^2 = 0$$
 
-**Explanation:** Pauli algebra gives the square as identity.
+Since $\vec{v}$ is a unit vector, $v_1^2 + v_2^2 + v_3^2 = 1$. The equation simplifies to:
 
----
-
-**Method 2 – Eigenvalue Equation**
-
-Solve $(\vec{v} \cdot \vec{\sigma} - \lambda I) \lvert \psi \rangle = 0$.
-
-Since it's 2x2, characteristic polynomial $\lambda^2 - 1 = 0$.
-
-**Explanation:** Minimal polynomial divides x^2 - 1.
+$$\lambda^2 - 1 = 0 \implies \lambda = \pm 1$$
 
 ---
 
-**Method 3 – Spin Representation**
+## **Part 2: Verifying the Projectors**
 
-$\vec{v} \cdot \vec{\sigma}$ is the spin operator along $\vec{v}$, eigenvalues $\pm 1$.
+An operator $P$ is a **projector** onto an eigenspace of $M$ with eigenvalue $\lambda$ if it satisfies three properties:
+1.  **Idempotent:** $P^2 = P$ (applying it twice is the same as applying it once).
+2.  **Hermitian:** $P^\dagger = P$ (ensures the projection is orthogonal).
+3.  **Projection Property:** $MP = \lambda P$ (it projects onto the correct eigenspace).
 
-Projectors are standard for spin 1/2.
+Let's verify these for $P_+ = \frac{I + M}{2}$ with eigenvalue $\lambda=+1$.
 
-**Explanation:** Physical interpretation.
+1.  **Idempotency:**
+    $$
+    P_+^2 = \left(\frac{I + M}{2}\right)^2 = \frac{1}{4}(I^2 + IM + MI + M^2)
+    $$
+    Using $M^2=I$, this becomes:
+    $$
+    P_+^2 = \frac{1}{4}(I + M + M + I) = \frac{1}{4}(2I + 2M) = \frac{I + M}{2} = P_+
+    $$
+2.  **Hermiticity:** $M$ is an observable and is therefore Hermitian ($M^\dagger = M$). The identity $I$ is also Hermitian. A linear combination of Hermitian operators with real coefficients is Hermitian, so $P_+$ is Hermitian.
 
----
+3.  **Projection Property:**
+    $$
+    MP_+ = M\left(\frac{I + M}{2}\right) = \frac{1}{2}(MI + M^2) = \frac{1}{2}(M + I) = P_+
+    $$
+    This is equivalent to $MP_+ = (+1)P_+$.
 
-**Summary:**
+All three properties hold for $P_+$. The verification for $P_- = \frac{I - M}{2}$ with eigenvalue $\lambda=-1$ follows the same logic.
 
-Eigenvalues are $\pm 1$, projectors $P_\pm = \frac{I \pm \vec{v} \cdot \vec{\sigma}}{2}$. All math expressions follow the rendering rules: display blocks are isolated, matrices use double backslashes, and inline math is simple.
+1.  **Idempotency:**
+    $$
+    P_-^2 = \left(\frac{I - M}{2}\right)^2 = \frac{1}{4}(I^2 - IM - MI + M^2) = \frac{1}{4}(I - 2M + I) = \frac{I - M}{2} = P_-
+    $$
+2.  **Hermiticity:** $P_-$ is also Hermitian for the same reason as $P_+$.
+
+3.  **Projection Property:**
+    $$
+    MP_- = M\left(\frac{I - M}{2}\right) = \frac{1}{2}(MI - M^2) = \frac{1}{2}(M - I) = -\left(\frac{I - M}{2}\right) = -P_-
+    $$
+    This is equivalent to $MP_- = (-1)P_-$.
+
+All properties hold, confirming that $P_\pm$ are the correct projectors. 🏛️

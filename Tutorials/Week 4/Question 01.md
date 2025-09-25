@@ -1,53 +1,82 @@
-# Question 1: Show that the average value of the measurement is $\langle \psi | M | \psi \rangle$. Also, compute the formula for standard deviation.
+The average value of a quantum measurement, also called the **expectation value**, is $\langle M \rangle = \langle \psi | M | \psi \rangle$. The **standard deviation**, which measures the statistical spread of the outcomes, is given by the formula $\Delta M = \sqrt{\langle M^2 \rangle - \langle M \rangle^2}$.
 
-## Solution
+***
 
-Below are multiple methods to show that the average value of a measurement of observable $M$ on state $\lvert \psi \rangle$ is $\langle \psi \vert M \vert \psi \rangle$, and to compute the standard deviation, each explained in detail. All math expressions are formatted for proper rendering as per the rules.
+### **Question 1: Show that the average value of the measurement is $\langle \psi | M | \psi \rangle$. Also, compute the formula for standard deviation.**
 
----
-
-**Method 1 – Probabilistic Expectation**
-
-The average value is the sum over possible outcomes $m$ of $m$ times the probability $p(m)$:
-
-$$
-\langle M \rangle = \sum_m m p(m).
-$$
-
-For projective measurement, $p(m) = \langle \psi \vert P_m \vert \psi \rangle$, where $P_m$ is the projector onto the eigenspace for $m$.
-
-Thus,
-
-$$
-\langle M \rangle = \sum_m m \langle \psi \vert P_m \vert \psi \rangle = \langle \psi \vert \left( \sum_m m P_m \right) \vert \psi \rangle = \langle \psi \vert M \vert \psi \rangle.
-$$
-
-**Explanation:** This uses the spectral decomposition $M = \sum_m m P_m$.
+This derivation uses the basic principles of quantum measurement. We consider a physical **observable** represented by a Hermitian operator $M$. This operator has **eigenvalues** $\{m\}$, which are the possible measurement outcomes, and corresponding **eigenvectors** $\{|m\rangle\}$.
 
 ---
 
-**Method 2 – Post-Measurement State Average**
+## **Average (Expectation) Value**
 
-After measurement yielding $m$, the state collapses to $\lvert \psi_m \rangle = P_m \lvert \psi \rangle / \sqrt{p(m)}$, and the average is the expectation over outcomes.
+The average value of a measurement is found by summing each possible outcome multiplied by its probability of occurring.
 
-The standard deviation is $\sigma = \sqrt{ \langle M^2 \rangle - \langle M \rangle^2 }$, where $\langle M^2 \rangle = \langle \psi \vert M^2 \vert \psi \rangle$.
+**1. Definition of Average Value**
+From statistics, the average is the sum of (outcome $\times$ probability of outcome).
 
-**Explanation:** Variance is the second moment minus square of first moment.
+$$\langle M \rangle = \sum_m m \cdot P(m)$$
+
+**2. The Born Rule**
+Quantum mechanics gives us the probability $P(m)$ of measuring the outcome $m$ from a state $|\psi\rangle$ via the **Born rule**:
+
+$$P(m) = |\langle m | \psi \rangle|^2$$
+
+Substituting this into the definition:
+
+$$\langle M \rangle = \sum_m m |\langle m | \psi \rangle|^2$$
+
+**3. Simplification**
+Using the identity $|z|^2 = z^*z$ (where $z = \langle m | \psi \rangle$), and the eigenvalue equation $M|m\rangle = m|m\rangle$, we can rewrite the expression:
+
+$$\langle M \rangle = \sum_m m \langle \psi | m \rangle \langle m | \psi \rangle = \sum_m \langle \psi | (m|m\rangle) \langle m | \psi \rangle = \sum_m \langle \psi | (M|m\rangle) \langle m | \psi \rangle$$
+
+This can be regrouped as:
+
+$$\langle M \rangle = \langle \psi | M \left( \sum_m |m\rangle\langle m| \right) |\psi \rangle$$
+
+**4. The Completeness Relation**
+The set of eigenvectors $\{|m\rangle\}$ forms a complete basis. This gives us the **completeness relation**, which states that the sum of the projectors onto these basis states is the identity operator, $I$:
+
+$$\sum_m |m\rangle\langle m| = I$$
+
+Substituting this into our expression gives the final result:
+
+$$\langle M \rangle = \langle \psi | M I |\psi \rangle = \langle \psi | M | \psi \rangle$$
 
 ---
 
-**Method 3 – Operator Expectation**
+## **Standard Deviation**
 
-For any observable, the expectation is $\langle M \rangle = \operatorname{Tr}(\rho M)$, where $\rho = \lvert \psi \rangle \langle \psi \vert$.
+The **standard deviation** $\Delta M$ measures the uncertainty in the measurement outcomes. It's the square root of the **variance** $(\Delta M)^2$.
 
-Thus, $\langle M \rangle = \operatorname{Tr}(\lvert \psi \rangle \langle \psi \vert M) = \langle \psi \vert M \vert \psi \rangle$.
+**1. Definition of Variance**
+The variance is the expectation value of the squared deviation from the mean. The operator for this is $(M - \langle M \rangle I)^2$.
 
-Standard deviation: $\sigma = \sqrt{ \operatorname{Tr}(\rho M^2) - [\operatorname{Tr}(\rho M)]^2 }$.
+$$(\Delta M)^2 = \left\langle (M - \langle M \rangle I)^2 \right\rangle$$
 
-**Explanation:** This is the general formula for expectation values in quantum mechanics.
+**2. Expansion and Simplification**
+We can expand the operator inside the expectation value:
 
----
+$$(M - \langle M \rangle I)^2 = M^2 - 2\langle M \rangle M + \langle M \rangle^2 I$$
 
-**Summary:**
+Using the linearity of the expectation value:
 
-The average is $\langle \psi \vert M \vert \psi \rangle$, and standard deviation is $\sqrt{ \langle \psi \vert M^2 \vert \psi \rangle - (\langle \psi \vert M \vert \psi \rangle)^2 }$. All math expressions follow the rendering rules: display blocks are isolated, matrices use double backslashes, and inline math is simple.
+$$(\Delta M)^2 = \langle M^2 \rangle - \langle 2\langle M \rangle M \rangle + \langle \langle M \rangle^2 I \rangle$$
+
+Since $\langle M \rangle$ is a scalar, we can pull it out of the expectation values:
+
+$$(\Delta M)^2 = \langle M^2 \rangle - 2\langle M \rangle \langle M \rangle + \langle M \rangle^2 \langle I \rangle$$
+
+The expectation value of the identity operator $\langle I \rangle$ is always 1 for a normalized state. This leaves:
+
+$$(\Delta M)^2 = \langle M^2 \rangle - 2\langle M \rangle^2 + \langle M \rangle^2 = \langle M^2 \rangle - \langle M \rangle^2$$
+
+**3. Final Formula**
+The **standard deviation** is the square root of the variance. 📈
+
+$$\Delta M = \sqrt{(\Delta M)^2} = \sqrt{\langle M^2 \rangle - \langle M \rangle^2}$$
+
+In bra-ket notation, this is:
+
+$$\Delta M = \sqrt{\langle \psi | M^2 | \psi \rangle - (\langle \psi | M | \psi \rangle)^2}$$
