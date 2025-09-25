@@ -63,3 +63,61 @@ After generating the complete set of orthogonal vectors $\{|w_1\rangle, \dots, |
 $$|e_k\rangle = \frac{|w_k\rangle}{\sqrt{\langle w_k | w_k \rangle}} \quad \text{for all } k=1, \dots, n$$
 
 While both methods are mathematically equivalent, the first solution (Modified Gram-Schmidt) is generally preferred in practice due to its superior numerical stability.
+
+
+
+
+
+
+Of course. The operation in Step 2 is the core of the Gram-Schmidt procedure. Subtracting the projection removes the component of $|v_2\rangle$ that is parallel to $|e_1\rangle$, leaving only the part that is perpendicular (orthogonal) to it.
+
+Here is a detailed breakdown of why this works, explained both geometrically and algebraically.
+
+***
+
+### **Detailed Explanation of Step 2**
+
+In Step 2, we construct a new vector, $|w_2\rangle$, from the original vector $|v_2\rangle$ using the formula:
+
+$$|w_2\rangle = |v_2\rangle - \langle e_1 | v_2 \rangle |e_1\rangle$$
+
+The goal is to show that this new vector $|w_2\rangle$ (and its normalized version $|e_2\rangle$) is **orthogonal** to $|e_1\rangle$.
+
+---
+
+## **1. The Geometric Intuition**
+
+Let's visualize what the components of the formula mean.
+* **$|v_2\rangle$**: This is our original vector, which is generally not orthogonal to $|e_1\rangle$.
+* **$|e_1\rangle$**: This is a **unit vector** that defines a direction (or an axis).
+* **$\text{proj}_{e_1}(|v_2\rangle) \equiv \langle e_1 | v_2 \rangle |e_1\rangle$**: This term is the **orthogonal projection** of the vector $|v_2\rangle$ onto the line defined by $|e_1\rangle$. You can think of this as the "shadow" that $|v_2\rangle$ casts on the $|e_1\rangle$ axis. This projection represents the entire component of $|v_2\rangle$ that is parallel to $|e_1\rangle$.
+
+
+
+Any vector, including $|v_2\rangle$, can be thought of as a sum of two parts: a component parallel to $|e_1\rangle$ and a component perpendicular to $|e_1\rangle$.
+$$|v_2\rangle = |v_{2, \parallel}\rangle + |v_{2, \perp}\rangle$$The parallel component, $|v_{2, \parallel}\rangle$, is exactly what the projection gives us. So, the Gram-Schmidt formula becomes:$$|w_2\rangle = |v_2\rangle - |v_{2, \parallel}\rangle$$When we subtract the parallel component from the original vector, what remains is purely the perpendicular component:$$|w_2\rangle = |v_{2, \perp}\rangle$$
+By definition, this resulting vector $|w_2\rangle$ must be orthogonal to $|e_1\rangle$.
+
+---
+
+## **2. The Algebraic Proof**
+
+We can prove this rigorously. For two vectors to be orthogonal, their inner product must be zero. So, we need to show that $\langle e_1 | w_2 \rangle = 0$.
+
+Let's compute the inner product:
+$$\langle e_1 | w_2 \rangle = \left\langle e_1 \middle| \left( |v_2\rangle - \langle e_1 | v_2 \rangle |e_1\rangle \right) \right\rangle$$
+
+Using the linearity of the inner product, we can distribute $\langle e_1 |$ across the terms in the parentheses:
+$$\langle e_1 | w_2 \rangle = \langle e_1 | v_2 \rangle - \left\langle e_1 \middle| \left( \langle e_1 | v_2 \rangle |e_1\rangle \right) \right\rangle$$
+
+In the second term, the quantity $\langle e_1 | v_2 \rangle$ is just a complex number (a scalar). We can pull scalars out of an inner product:
+$$\langle e_1 | w_2 \rangle = \langle e_1 | v_2 \rangle - \langle e_1 | v_2 \rangle \langle e_1 | e_1 \rangle$$
+
+From Step 1 of the procedure, we know that $|e_1\rangle$ is a normalized vector, which means its inner product with itself is 1.
+$$\langle e_1 | e_1 \rangle = 1$$Substituting this in gives:$$\langle e_1 | w_2 \rangle = \langle e_1 | v_2 \rangle - \langle e_1 | v_2 \rangle \cdot 1$$
+$$\langle e_1 | w_2 \rangle = 0$$
+Since their inner product is zero, the vector $|w_2\rangle$ is orthogonal to $|e_1\rangle$. ✅
+
+Finally, the vector $|e_2\rangle$ is just the normalized version of $|w_2\rangle$:
+$$|e_2\rangle = \frac{|w_2\rangle}{\sqrt{\langle w_2 | w_2 \rangle}}$$
+Normalization only changes a vector's length, not its direction. Therefore, since $|w_2\rangle$ is orthogonal to $|e_1\rangle$, $|e_2\rangle$ is also orthogonal to $|e_1\rangle$.
