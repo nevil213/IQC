@@ -4,24 +4,24 @@ for V and compute its dimension. -->
 ## Solution
 
 The vectors are:
-$
+$$
 \mathbf{v}_1 = (1, 0, 1), \quad \mathbf{v}_2 = (0, 1, 1), \quad \mathbf{v}_3 = (1, 1, 2)
-$
+$$
 
 Notice that $ \mathbf{v}_3 = \mathbf{v}_1 + \mathbf{v}_2 $:
-$
+$$
 (1, 0, 1) + (0, 1, 1) = (1, 1, 2)
-$
+$$
 
 Thus, $ \mathbf{v}_3 $ is a linear combination of $ \mathbf{v}_1 $ and $ \mathbf{v}_2 $, so the span is the same as span{ $ \mathbf{v}_1, \mathbf{v}_2 $ }.
 
 To check if $ \mathbf{v}_1 $ and $ \mathbf{v}_2 $ are linearly independent, assume $ a \mathbf{v}_1 + b \mathbf{v}_2 = \mathbf{0} $:
-$
+$$
 a(1, 0, 1) + b(0, 1, 1) = (0, 0, 0)
-$
-$
+$$
+$$
 (a, b, a + b) = (0, 0, 0)
-$
+$$
 So $ a = 0 $, $ b = 0 $, $ a + b = 0 $, yes.
 
 Thus, a basis for V is { $ \mathbf{v}_1, \mathbf{v}_2 $ }, and the dimension is 2.

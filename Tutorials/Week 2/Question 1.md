@@ -9,10 +9,10 @@ Let $ \mathbf{v}_1 = (1, 1) $, $ \mathbf{v}_2 = (1, -1) $.
 Assume $ a(1, 1) + b(1, -1) = (0, 0) $.
 
 This gives the system:
-$
+$$
 a + b = 0 \\
 a - b = 0
-$
+$$
 
 Adding the equations: $ 2a = 0 $ ⇒ $ a = 0 $.
 
@@ -23,12 +23,12 @@ Thus, the only solution is $ a = 0 $, $ b = 0 $, so the set is linearly independ
 ### Alternative Method: Determinant
 
 Form the matrix with the vectors as columns:
-$
+$$
 \begin{pmatrix}
 1 & 1 \\
 1 & -1
 \end{pmatrix}
-$
+$$
 
 The determinant is $ 1 \cdot (-1) - 1 \cdot 1 = -1 - 1 = -2 \neq 0 $.
 
