@@ -11,7 +11,7 @@ Show that B is Hermitian. -->
 The matrix is defined as:
 
 $$
-B = \begin{pmatrix} 0 & 1 + i \\ 1 - i & 0 \end{pmatrix}
+B = \begin{pmatrix} 0 & 1 + i \\\\ 1 - i & 0 \end{pmatrix}
 $$
 
 To check if Hermitian, compute $B^\dagger$, the conjugate transpose.
@@ -19,13 +19,13 @@ To check if Hermitian, compute $B^\dagger$, the conjugate transpose.
 First, transpose $B$:
 
 $$
-B^T = \begin{pmatrix} 0 & 1 - i \\ 1 + i & 0 \end{pmatrix}
+B^T = \begin{pmatrix} 0 & 1 - i \\\\ 1 + i & 0 \end{pmatrix}
 $$
 
 Now, take the complex conjugate:
 
 $$
-B^\dagger = \begin{pmatrix} 0 & \overline{1 - i} \\ \overline{1 + i} & 0 \end{pmatrix} = \begin{pmatrix} 0 & 1 + i \\ 1 - i & 0 \end{pmatrix} = B
+B^\dagger = \begin{pmatrix} 0 & {1 - i} \\\\ {1 + i} & 0 \end{pmatrix}^* = \begin{pmatrix} 0 & 1 + i \\\\ 1 - i & 0 \end{pmatrix} = B
 $$
 
 Since $B^\dagger = B$, the matrix is Hermitian.
