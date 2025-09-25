@@ -6,12 +6,13 @@ Is the tensor product commutative? -->
 
 ## Solution
 
-The Pauli matrices are:
-$
-I = \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}, \quad X = \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}, \quad Z = \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}
-$
+The Pauli matrices are defined as:
 
-The Kronecker product $ A \otimes B $ for 2×2 matrices results in a 4×4 matrix.
+$$
+I = \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}, \quad X = \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}, \quad Z = \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}
+$$
+
+The Kronecker product $A \otimes B$ for 2×2 matrices results in a 4×4 matrix.
 
 ### (a) X ⊗ Z
 

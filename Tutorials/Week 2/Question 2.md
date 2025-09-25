@@ -1,6 +1,7 @@
 ## Solution
 
 The 2×2 identity matrix is:
+
 $$
 I = \begin{pmatrix}
 1 & 0 \\\\
@@ -8,7 +9,17 @@ I = \begin{pmatrix}
 \end{pmatrix}
 $$
 
-Its action on the vector $\mathbf{v} = \begin{pmatrix} 2 \\\\ 3 \end{pmatrix}$ is:
+Its action is on the vector $\mathbf{v}$, defined as:
+
+$$
+\mathbf{v} = \begin{pmatrix}
+2 \\\\
+3
+\end{pmatrix}
+$$
+
+The calculation is as follows:
+
 $$
 I \mathbf{v} = \begin{pmatrix}
 1 & 0 \\\\
@@ -16,4 +27,4 @@ I \mathbf{v} = \begin{pmatrix}
 \end{pmatrix} \begin{pmatrix} 2 \\\\ 3 \end{pmatrix} = \begin{pmatrix} 1 \cdot 2 + 0 \cdot 3 \\\\ 0 \cdot 2 + 1 \cdot 3 \end{pmatrix} = \begin{pmatrix} 2 \\\\ 3 \end{pmatrix}
 $$
 
-So, $ I \mathbf{v} = \mathbf{v} $, as expected for the identity matrix.
+So, $I \mathbf{v} = \mathbf{v}$, as expected for the identity matrix.
