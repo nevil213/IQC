@@ -15,7 +15,7 @@ $$
 (1, 0, 1) + (0, 1, 1) = (1, 1, 2)
 $$
 
-Thus, $\mathbf{v}_3$ is a linear combination of $\mathbf{v}_1$ and $\mathbf{v}_2$, so the span is the same as span{$\mathbf{v}_1, \mathbf{v}_2$}.
+Since $\mathbf{v}_3$ is a linear combination of $\mathbf{v}_1$ and $\mathbf{v}_2$, it is redundant and can be removed without changing the span. Therefore, the subspace is spanned by the set $\{\mathbf{v}_1, \mathbf{v}_2\}$.
 
 To check if $\mathbf{v}_1$ and $\mathbf{v}_2$ are linearly independent, assume $a \mathbf{v}_1 + b \mathbf{v}_2 = \mathbf{0}$:
 
@@ -29,7 +29,7 @@ $$
 
 So $a = 0$, $b = 0$, $a + b = 0$, yes.
 
-Thus, a basis for V is {$\mathbf{v}_1, \mathbf{v}_2$}, and the dimension is 2.
+Thus, a basis for V is $\mathbf{v}_1, \mathbf{v}_2$}, and the dimension is 2.
 
 ### Alternative Method: Row Reduction
 
