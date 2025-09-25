@@ -31,7 +31,7 @@ Form the matrix with the vectors as columns:
 
 $$
 \begin{pmatrix}
-1 & 1 \\
+1 & 1 \\\\
 1 & -1
 \end{pmatrix}
 $$

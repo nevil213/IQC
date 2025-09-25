@@ -20,11 +20,19 @@ $$
 Using Kronecker product (assuming column vectors $|0\rangle = \begin{pmatrix} 1 \\ 0 \end{pmatrix}$, $|1\rangle = \begin{pmatrix} 0 \\ 1 \end{pmatrix}$):
 
 $$
-|\psi\rangle = \frac{1}{\sqrt{2}} \begin{pmatrix} 1 \\ 1 \end{pmatrix}
+|\psi\rangle = \frac{1}{\sqrt{2}} \begin{pmatrix}
+1 \\\\
+1
+\end{pmatrix}
 $$
 
 $$
-|\psi\rangle \otimes |\psi\rangle = \frac{1}{\sqrt{2}} \begin{pmatrix} 1 \\ 1 \end{pmatrix} \otimes \frac{1}{\sqrt{2}} \begin{pmatrix} 1 \\ 1 \end{pmatrix} = \frac{1}{2} \begin{pmatrix} 1 \\ 1 \\ 1 \\ 1 \end{pmatrix}
+|\psi\rangle \otimes |\psi\rangle = \frac{1}{\sqrt{2}} \begin{pmatrix} 1 \\ 1 \end{pmatrix} \otimes \frac{1}{\sqrt{2}} \begin{pmatrix} 1 \\ 1 \end{pmatrix} = \frac{1}{2} \begin{pmatrix}
+1 \\\\
+1 \\\\
+1 \\\\
+1
+\end{pmatrix}
 $$
 
 ### |ψ⟩⊗3
@@ -42,5 +50,14 @@ $$
 Using Kronecker product:
 
 $$
-|\psi\rangle \otimes |\psi\rangle \otimes |\psi\rangle = \frac{1}{\sqrt{2}} \begin{pmatrix} 1 \\ 1 \end{pmatrix} \otimes \frac{1}{\sqrt{2}} \begin{pmatrix} 1 \\ 1 \end{pmatrix} \otimes \frac{1}{\sqrt{2}} \begin{pmatrix} 1 \\ 1 \end{pmatrix} = \frac{1}{2\sqrt{2}} \begin{pmatrix} 1 \\ 1 \\ 1 \\ 1 \\ 1 \\ 1 \\ 1 \\ 1 \end{pmatrix}
+|\psi\rangle \otimes |\psi\rangle \otimes |\psi\rangle = \frac{1}{\sqrt{2}} \begin{pmatrix} 1 \\ 1 \end{pmatrix} \otimes \frac{1}{\sqrt{2}} \begin{pmatrix} 1 \\ 1 \end{pmatrix} \otimes \frac{1}{\sqrt{2}} \begin{pmatrix} 1 \\ 1 \end{pmatrix} = \frac{1}{2\sqrt{2}} \begin{pmatrix}
+1 \\\\
+1 \\\\
+1 \\\\
+1 \\\\
+1 \\\\
+1 \\\\
+1 \\\\
+1
+\end{pmatrix}
 $$

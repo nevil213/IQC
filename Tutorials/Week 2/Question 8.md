@@ -37,8 +37,8 @@ Form the matrix with the vectors as rows:
 
 $$
 \begin{pmatrix}
-1 & 0 & 1 \\
-0 & 1 & 1 \\
+1 & 0 & 1 \\\\
+0 & 1 & 1 \\\\
 1 & 1 & 2
 \end{pmatrix}
 $$
@@ -48,8 +48,8 @@ Subtract row 1 from row 3:
 
 $$
 \begin{pmatrix}
-1 & 0 & 1 \\
-0 & 1 & 1 \\
+1 & 0 & 1 \\\\
+0 & 1 & 1 \\\\
 0 & 1 & 1
 \end{pmatrix}
 $$
@@ -58,8 +58,8 @@ Subtract row 2 from row 3:
 
 $$
 \begin{pmatrix}
-1 & 0 & 1 \\
-0 & 1 & 1 \\
+1 & 0 & 1 \\\\
+0 & 1 & 1 \\\\
 0 & 0 & 0
 \end{pmatrix}
 $$
