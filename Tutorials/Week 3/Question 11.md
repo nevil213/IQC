@@ -1,62 +1,99 @@
-# Q11. The Hadamard gate is given by $H = \frac{1}{\sqrt{2}} \begin{pmatrix} 1 & 1 \\\\ 1 & -1 \end{pmatrix}$. Verify that $H^2 = I$ and that $H$ is unitary. Find the eigenvalues and eigenvectors of $H$.
+The Hadamard gate is both **unitary** and **Hermitian**, and it is its own inverse ($H^2 = I$). Its **eigenvalues** are $+1$ and $-1$, and its eigenvectors represent the axis of rotation for the Hadamard operation on the Bloch sphere.
 
-## Solution
+-----
 
-Below are multiple methods to verify that the Hadamard gate $H$ satisfies $H^2 = I$ and is unitary, and to find its eigenvalues and eigenvectors, each explained in detail. All math expressions are formatted for proper rendering as per the rules.
+### **Q11. The Hadamard gate is given by $H = \frac{1}{\sqrt{2}} \begin{pmatrix} 1 & 1 \\\\ 1 & -1 \end{pmatrix}$. Verify that $H^2 = I$ and that $H$ is unitary. Find the eigenvalues and eigenvectors of $H$.**
 
----
+-----
 
-**Method 1 – Direct Matrix Multiplication**
+## **Verifying $H^2 = I$ and Unitarity**
 
-Compute $H^2$:
+An operator $U$ is **unitary** if its conjugate transpose is its inverse, $U^\dagger U = I$. We can verify these properties for the Hadamard gate in two ways.
+
+### **Solution 1.1: Direct Matrix Multiplication**
+
+This method is a straightforward calculation.
+
+**1. Verifying $H^2 = I$**
+We multiply the Hadamard matrix by itself:
 
 $$
-H^2 = \frac{1}{2} \begin{pmatrix}
+H^2 = \left(\frac{1}{\sqrt{2}}\right)^2 \begin{pmatrix}
 1 & 1 \\\\
 1 & -1
 \end{pmatrix} \begin{pmatrix}
 1 & 1 \\\\
 1 & -1
 \end{pmatrix} = \frac{1}{2} \begin{pmatrix}
+1\cdot1 + 1\cdot1 & 1\cdot1 + 1\cdot(-1) \\\\
+1\cdot1 + (-1)\cdot1 & 1\cdot1 + (-1)\cdot(-1)
+\end{pmatrix}
+$$
+= \frac{1}{2} \begin{pmatrix}
 2 & 0 \\\\
 0 & 2
-\end{pmatrix} = I.
+\end{pmatrix} = \begin{pmatrix}
+1 & 0 \\\\
+0 & 1
+\end{pmatrix} = I
+This shows that $H$ is its own inverse, $H^{-1} = H$.
+
+**2. Verifying Unitarity**
+We first find the conjugate transpose, $H^\dagger$. Since all elements of $H$ are real, the conjugate does nothing. Since the matrix is symmetric, the transpose does nothing. Therefore, $H$ is Hermitian:
+$$H^\dagger = H$$
+Now we check the condition for unitarity:
+$$H^\dagger H = H \cdot H = H^2$$
+From our previous result, we know $H^2 = I$. Thus, $H^\dagger H = I$, and the Hadamard gate is unitary. ✅
+
+### **Solution 1.2: Action on Basis States**
+
+This method confirms the properties by observing the gate's effect.
+
+The Hadamard gate maps the computational basis states to the Hadamard basis states:
+
+* $H|0\rangle = \frac{1}{\sqrt{2}}(|0\rangle + |1\rangle) = |+\rangle$
+* $H|1\rangle = \frac{1}{\sqrt{2}}(|0\rangle - |1\rangle) = |-\rangle$
+
+Applying the gate a second time:
+
+* $H^2|0\rangle = H|+\rangle = H\left(\frac{1}{\sqrt{2}}(|0\rangle+|1\rangle)\right) = \frac{1}{\sqrt{2}}(H|0\rangle+H|1\rangle) = \frac{1}{2}(|0\rangle+|1\rangle+|0\rangle-|1\rangle) = |0\rangle$
+* $H^2|1\rangle = H|-\rangle = H\left(\frac{1}{\sqrt{2}}(|0\rangle-|1\rangle)\right) = \frac{1}{\sqrt{2}}(H|0\rangle-H|1\rangle) = \frac{1}{2}(|0\rangle+|1\rangle-|0\rangle+|1\rangle) = |1\rangle$
+
+Since applying $H^2$ leaves the basis states unchanged, it must be the identity operator. Furthermore, since $H$ maps one orthonormal basis ($\{|0\rangle, |1\rangle\}$) to another orthonormal basis ($\{|+\rangle, |-\rangle\}$), it is, by definition, a unitary transformation.
+
+-----
+
+## **Finding Eigenvalues and Eigenvectors**
+
+We need to solve the eigenvalue equation $H|\psi\rangle = \lambda|\psi\rangle$.
+
+### **Step 1: Finding Eigenvalues**
+
+The eigenvalues $\lambda$ are the roots of the characteristic equation $\det(H - \lambda I) = 0$.
+$$\det\begin{pmatrix} \frac{1}{\sqrt{2}}-\lambda & \frac{1}{\sqrt{2}} \\\\ \frac{1}{\sqrt{2}} & -\frac{1}{\sqrt{2}}-\lambda \end{pmatrix} = 0$$
+$$\left(\frac{1}{\sqrt{2}}-\lambda\right)\left(-\frac{1}{\sqrt{2}}-\lambda\right) - \left(\frac{1}{\sqrt{2}}\right)\left(\frac{1}{\sqrt{2}}\right) = 0$$
+$$-\left(\frac{1}{2} - \lambda^2\right) - \frac{1}{2} = 0 \implies \lambda^2 - 1 = 0$$
+The eigenvalues are $\lambda_1 = +1$ and $\lambda_2 = -1$.
+
+### **Step 2: Finding Eigenvectors**
+
+We now find the eigenvector for each eigenvalue.
+
+* **For $\lambda = +1$**: We solve $H|\psi\rangle = |\psi\rangle$. Let $|\psi_1\rangle = \begin{pmatrix} a \\\\ b \end{pmatrix}$.
+$$
+\frac{1}{\sqrt{2}}\begin{pmatrix} 1 & 1 \\\\ 1 & -1 \end{pmatrix} \begin{pmatrix} a \\\\ b \end{pmatrix} = \begin{pmatrix} a \\\\ b \end{pmatrix} \implies a+b = \sqrt{2}a
+$$
+This gives the condition $b = (\sqrt{2}-1)a$. The unnormalized eigenvector is $\begin{pmatrix} 1 \\\\ \sqrt{2}-1 \end{pmatrix}$. Normalizing this vector gives the eigenvector for $\lambda=1$:
+$$
+|\psi_1\rangle = \frac{1}{\sqrt{4-2\sqrt{2}}} \begin{pmatrix} 1 \\\\ \sqrt{2}-1 \end{pmatrix} \approx 0.92|0\rangle + 0.38|1\rangle
 $$
 
-Since $H^2 = I$, $H^{-1} = H$, and $H^\dagger H = H H = I$, $H$ is unitary.
-
-**Explanation:** Matrix computation directly shows the properties.
-
----
-
-**Method 2 – Orthonormal Columns Check**
-
-Columns of $H$:
-
+* **For $\lambda = -1$**: We solve $H|\psi\rangle = -|\psi\rangle$. Let $|\psi_2\rangle = \begin{pmatrix} a \\\\ b \end{pmatrix}$.
 $$
-\mathbf{h}_1 = \frac{1}{\sqrt{2}} \begin{pmatrix} 1 \\\\ 1 \end{pmatrix}, \quad \mathbf{h}_2 = \frac{1}{\sqrt{2}} \begin{pmatrix} 1 \\\\ -1 \end{pmatrix}.
+\frac{1}{\sqrt{2}}\begin{pmatrix} 1 & 1 \\\\ 1 & -1 \end{pmatrix} \begin{pmatrix} a \\\\ b \end{pmatrix} = -\begin{pmatrix} a \\\\ b \end{pmatrix} \implies a+b = -\sqrt{2}a
 $$
-
-They have unit norm and are orthogonal, so $H$ is unitary.
-
-**Explanation:** Unitary matrices have orthonormal columns.
-
----
-
-**Eigenvalues and Eigenvectors**
-
-Solve $H \lvert \psi \rangle = \lambda \lvert \psi \rangle$. Eigenvalues $\pm 1$.
-
-For $\lambda = 1$: $\lvert + \rangle = \frac{1}{\sqrt{2}} (\lvert 0 \rangle + \lvert 1 \rangle)$.
-
-For $\lambda = -1$: $\lvert - \rangle = \frac{1}{\sqrt{2}} (\lvert 0 \rangle - \lvert 1 \rangle)$.
-
-Spectral decomposition: $H = \lvert + \rangle \langle + \rvert - \lvert - \rangle \langle - \rvert$.
-
-**Explanation:** Eigenvectors are the $\pm$ states, and $H$ rotates the Bloch sphere.
-
----
-
-**Summary:**
-
-$H$ is unitary with $H^2 = I$, eigenvalues $\pm 1$, and eigenvectors $\lvert \pm \rangle$. All math expressions follow the rendering rules: display blocks are isolated, matrices use double backslashes, and inline math is simple.
+This gives the condition $b = -(\sqrt{2}+1)a$. The unnormalized eigenvector is $\begin{pmatrix} 1 \\\\ -(\sqrt{2}+1) \end{pmatrix}$. Normalizing gives the eigenvector for $\lambda=-1$:
+$$
+|\psi_2\rangle = \frac{1}{\sqrt{4+2\sqrt{2}}} \begin{pmatrix} 1 \\\\ -(\sqrt{2}+1) \end{pmatrix} \approx 0.38|0\rangle - 0.92|1\rangle
+$$
+Geometrically, these eigenvectors represent the axis on the Bloch sphere (an axis lying in the x-z plane) about which the Hadamard gate performs a rotation of $\pi$ radians.

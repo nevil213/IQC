@@ -1,61 +1,67 @@
-# Q12. (Eigendecomposition of the Pauli matrices) Find the eigenvectors, eigenvalues, and diagonal representations of the Pauli matrices $X$, $Y$, and $Z$.
-
-## Solution
-
-Below are multiple methods to find the eigenvectors, eigenvalues, and diagonal representations of the Pauli matrices $X$, $Y$, $Z$, each explained in detail. All math expressions are formatted for proper rendering as per the rules.
+The Pauli matrices X, Y, and Z all have eigenvalues +1 and −1. Their eigenvectors are the quantum states pointing along the ±x, ±y, and ±z directions on the Bloch sphere. Each Pauli matrix can be written in its diagonal form M = U D U†, where D = diag(1, −1) and the columns of U are the normalized eigenvectors.
 
 ---
 
-**Method 1 – Direct Eigenvector Solving**
+### Q12. (Eigendecomposition of the Pauli matrices)
 
-Pauli matrices:
-
+The Pauli matrices:
 $$
-X = \begin{pmatrix} 0 & 1 \\\\ 1 & 0 \end{pmatrix}, \quad Y = \begin{pmatrix} 0 & -i \\\\ i & 0 \end{pmatrix}, \quad Z = \begin{pmatrix} 1 & 0 \\\\ 0 & -1 \end{pmatrix}.
-$$
-
-All have eigenvalues $\pm 1$.
-
-- $X$: Eigenvectors $\frac{1}{\sqrt{2}} \begin{pmatrix} 1 \\\\ 1 \end{pmatrix}$ for +1, $\frac{1}{\sqrt{2}} \begin{pmatrix} 1 \\\\ -1 \end{pmatrix}$ for -1.
-
-- $Y$: $\frac{1}{\sqrt{2}} \begin{pmatrix} 1 \\\\ i \end{pmatrix}$ for +1, $\frac{1}{\sqrt{2}} \begin{pmatrix} 1 \\\\ -i \end{pmatrix}$ for -1.
-
-- $Z$: $\begin{pmatrix} 1 \\\\ 0 \end{pmatrix}$ for +1, $\begin{pmatrix} 0 \\\\ 1 \end{pmatrix}$ for -1.
-
-**Explanation:** Solving the characteristic equations directly.
-
----
-
-**Method 2 – Bloch-Sphere Intuition and Rotations**
-
-Eigenvectors are spin-up/down states:
-
-$$
-\lvert \pm x \rangle = \frac{1}{\sqrt{2}} (\lvert 0 \rangle \pm \lvert 1 \rangle), \quad \lvert \pm y \rangle = \frac{1}{\sqrt{2}} (\lvert 0 \rangle \pm i \lvert 1 \rangle), \quad \lvert \pm z \rangle = \lvert 0 \rangle, \lvert 1 \rangle.
+X=\begin{pmatrix}0&1\\[4pt]1&0\end{pmatrix},\qquad
+Y=\begin{pmatrix}0&-i\\[4pt]i&0\end{pmatrix},\qquad
+Z=\begin{pmatrix}1&0\\[4pt]0&-1\end{pmatrix}.
 $$
 
-**Explanation:** Pauli matrices represent measurements along axes.
+1. Finding eigenvalues and eigenvectors
 
----
+Eigenvalues:
+All Pauli matrices satisfy $\sigma^2=I$. If $\sigma|\psi\rangle=\lambda|\psi\rangle$, then $\lambda^2=1$, so $\lambda=\pm1$.
 
-**Diagonal Representations via Unitary Similarity**
+Eigenvectors (normalized):
+- Z:
+    - $\lambda=+1$: $|0\rangle=\begin{pmatrix}1\\[4pt]0\end{pmatrix}$
+    - $\lambda=-1$: $|1\rangle=\begin{pmatrix}0\\[4pt]1\end{pmatrix}$
+- X:
+    - $\lambda=+1$: $|+\rangle=\tfrac{1}{\sqrt{2}}(|0\rangle+|1\rangle)=\tfrac{1}{\sqrt{2}}\begin{pmatrix}1\\[4pt]1\end{pmatrix}$
+    - $\lambda=-1$: $|-\rangle=\tfrac{1}{\sqrt{2}}(|0\rangle-|1\rangle)=\tfrac{1}{\sqrt{2}}\begin{pmatrix}1\\[4pt]-1\end{pmatrix}$
+- Y:
+    - $\lambda=+1$: $|i\rangle=\tfrac{1}{\sqrt{2}}(|0\rangle+i|1\rangle)=\tfrac{1}{\sqrt{2}}\begin{pmatrix}1\\[4pt]i\end{pmatrix}$
+    - $\lambda=-1$: $|-i\rangle=\tfrac{1}{\sqrt{2}}(|0\rangle-i|1\rangle)=\tfrac{1}{\sqrt{2}}\begin{pmatrix}1\\[4pt]-i\end{pmatrix}$
 
-Using $H$ (Hadamard) and $S = \operatorname{diag}(1, i)$:
+Summary table:
 
+| Matrix | Eigenvalue | Ket | Column vector |
+|:------:|:----------:|:---:|:-------------:|
+| Z | +1 | \|0&rang; | $\begin{pmatrix}1\\[4pt]0\end{pmatrix}$ |
+| Z | −1 | \|1&rang; | $\begin{pmatrix}0\\[4pt]1\end{pmatrix}$ |
+| X | +1 | \|+&rang; | $\tfrac{1}{\sqrt{2}}\begin{pmatrix}1\\[4pt]1\end{pmatrix}$ |
+| X | −1 | \|-&rang; | $\tfrac{1}{\sqrt{2}}\begin{pmatrix}1\\[4pt]-1\end{pmatrix}$ |
+| Y | +1 | \|i&rang; | $\tfrac{1}{\sqrt{2}}\begin{pmatrix}1\\[4pt]i\end{pmatrix}$ |
+| Y | −1 | \|-i&rang; | $\tfrac{1}{\sqrt{2}}\begin{pmatrix}1\\[4pt]-i\end{pmatrix}$ |
+
+2. Diagonal representations
+
+The common diagonal matrix (with +1 first) is
 $$
-X = H Z H, \quad Y = (S H) Z (S H)^\dagger, \quad Z = Z.
+D=\begin{pmatrix}1&0\\[4pt]0&-1\end{pmatrix}.
 $$
 
-Explicitly:
+Unitary matrices whose columns are the eigenvectors:
 
-$$
-X = H \begin{pmatrix} 1 & 0 \\\\ 0 & -1 \end{pmatrix} H^\dagger, \quad Y = U_Y \begin{pmatrix} 1 & 0 \\\\ 0 & -1 \end{pmatrix} U_Y^\dagger, \quad Z = I \begin{pmatrix} 1 & 0 \\\\ 0 & -1 \end{pmatrix} I^\dagger.
-$$
+- For Z: $U_Z=I$, so
+    $$
+    Z=I\,D\,I^\dagger.
+    $$
 
-**Explanation:** Similarity transformations diagonalize the matrices.
+- For X: columns $|+\rangle,|-\rangle$ give the Hadamard
+    $$
+    U_X=H=\frac{1}{\sqrt{2}}\begin{pmatrix}1&1\\[4pt]1&-1\end{pmatrix},
+    \qquad X=H\,D\,H^\dagger.
+    $$
 
----
+- For Y: columns $|i\rangle,|-i\rangle$ give
+    $$
+    U_Y=\frac{1}{\sqrt{2}}\begin{pmatrix}1&1\\[4pt]i&-i\end{pmatrix},
+    \qquad Y=U_Y\,D\,U_Y^\dagger.
+    $$
 
-**Summary:**
-
-These diagonal forms, together with the eigenvectors listed above, provide the full eigendecomposition for the Pauli matrices. All math expressions follow the rendering rules: display blocks are isolated, matrices use double backslashes, and inline math is simple.
+Each decomposition expresses the Pauli operator in the basis of its eigenvectors.
