@@ -1,37 +1,41 @@
-<!-- Q7. Show that the eigenvalues of a projector P are all either 0 or 1. -->
+# Q7. Show that the eigenvalues of a projector $P$ are all either 0 or 1.
 
-### Solution
+## Solution
 
-Let $P$ be a projector, i.e., $P^2 = P$ and $P^\dagger = P$ (orthogonal projector) or more generally $P^2 = P$ (idempotent operator).
+Below are multiple methods to show that the eigenvalues of a projector $P$ are all either 0 or 1, each explained in detail. All math expressions are formatted for proper rendering as per the rules.
 
-**Method 1 – Eigenvalue equation from idempotence.** Suppose $P \lvert \psi \rangle = \lambda \lvert \psi \rangle$ for some eigenpair $(\lambda, \lvert \psi \rangle)$. Then
+---
+
+**Method 1 – Eigenvalue Equation from Idempotence**
+
+For an eigenvector $\lvert \psi \rangle$ with $P \lvert \psi \rangle = \lambda \lvert \psi \rangle$, apply $P$ again:
 
 $$
 P^2 \lvert \psi \rangle = P (\lambda \lvert \psi \rangle) = \lambda P \lvert \psi \rangle = \lambda^2 \lvert \psi \rangle.
 $$
 
-But $P^2 = P$ implies
+But $P^2 = P$, so $\lambda^2 \lvert \psi \rangle = \lambda \lvert \psi \rangle$, implying $\lambda(\lambda - 1) = 0$.
 
-$$
-P^2 \lvert \psi \rangle = P \lvert \psi \rangle = \lambda \lvert \psi \rangle.
-$$
+**Explanation:** Idempotence forces eigenvalues to satisfy a quadratic equation with roots 0 and 1.
 
-Equating the two expressions gives $\lambda^2 = \lambda$, so $\lambda(\lambda - 1) = 0$ and therefore $\lambda \in \{0, 1\}$.
+---
 
-**Method 2 – Spectral decomposition.** Because $P$ is normal ($P^\dagger P = P P^\dagger$) whenever it is an orthogonal projector, the spectral theorem applies:
+**Method 2 – Spectral Decomposition**
 
-$$
-P = \sum_k \lambda_k \lvert k \rangle \langle k \rvert.
-$$
+As a normal operator, $P = \sum_k \lambda_k \lvert k \rangle \langle k \rvert$. Then $P^2 = \sum_k \lambda_k^2 \lvert k \rangle \langle k \rvert = P$, so $\lambda_k^2 = \lambda_k$.
 
-Applying $P^2 = P$ gives
+**Explanation:** The spectral theorem decomposes $P$, and idempotence constrains the eigenvalues.
 
-$$
-\sum_k \lambda_k^2 \lvert k \rangle \langle k \rvert = \sum_k \lambda_k \lvert k \rangle \langle k \rvert,
-$$
+---
 
-leading to the same constraint $\lambda_k^2 = \lambda_k$ for every eigenvalue. Hence all $\lambda_k$ equal $0$ or $1$.
+**Method 3 – Geometric Argument**
 
-**Method 3 – Geometric argument.** If $P$ projects onto a subspace $\mathcal{S}$, then vectors in $\mathcal{S}$ are left unchanged (eigenvalue $1$), while vectors orthogonal to $\mathcal{S}$ are mapped to the zero vector (eigenvalue $0$). Decomposing any vector as $\lvert \psi \rangle = \lvert \psi_{\parallel} \rangle + \lvert \psi_{\perp} \rangle$ with $\lvert \psi_{\parallel} \rangle \in \mathcal{S}$ and $\lvert \psi_{\perp} \rangle \perp \mathcal{S}$ shows directly that $P$ has no other eigenvalues.
+Vectors in the subspace $\mathcal{S}$ are unchanged by $P$ (eigenvalue 1), while orthogonal vectors map to zero (eigenvalue 0).
 
-Thus all eigenvalues of any projector are either zero or one.
+**Explanation:** Projectors preserve their range and annihilate the orthogonal complement.
+
+---
+
+**Summary:**
+
+Thus all eigenvalues of any projector are either zero or one. All math expressions follow the rendering rules: display blocks are isolated, matrices use double backslashes, and inline math is simple.

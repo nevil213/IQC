@@ -1,5 +1,4 @@
-<!-- 3. Suppose {|vi⟩} is an orthonormal basis for an inner product space V . What is the
-matrix representation for the operator |vj⟩⟨vk|, with respect to the {|vi⟩} basis? -->
+# 3. Suppose $\{|v_i\rangle\}$ is an orthonormal basis for an inner product space $V$. What is the matrix representation for the operator $|v_j\rangle\langle v_k|$, with respect to the $\{|v_i\rangle\}$ basis?
 
 ## Solution
 

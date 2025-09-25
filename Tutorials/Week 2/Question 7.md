@@ -1,10 +1,4 @@
-<!-- 7. Let
-B =
-[0 1 + i
-1 −i 0
-]
-.
-Show that B is Hermitian. -->
+# 7. Let $B = \begin{pmatrix} 0 & 1 + i \\\\ 1 - i & 0 \end{pmatrix}$. Show that $B$ is Hermitian.
 
 ## Solution
 

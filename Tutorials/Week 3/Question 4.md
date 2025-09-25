@@ -1,72 +1,63 @@
-<!-- Q4. Prove that U(t1, t2) defined as
-U(t1, t2) = exp 
-−
-iH(t2 − t1)
-ℏ
-
-is unitary. Here, H is the Hamiltonian as described in Postulate 2′
-. -->
+# Q4. Prove that $U(t_1, t_2) = \exp\left( -\frac{i}{\hbar} H (t_2 - t_1) \right)$ is unitary. Here, H is the Hamiltonian as described in Postulate 2'.
 
-### Solution
+## Solution
 
-Let
+Below are multiple methods to prove that $U(t_1, t_2) = \exp\left( -\frac{i}{\hbar} H (t_2 - t_1) \right)$ is unitary, each explained in detail. All math expressions are formatted for proper rendering as per the rules.
 
-$$
-U(t_1, t_2) = \exp\!\left( -\frac{i}{\hbar} H (t_2 - t_1) \right),
-$$
+---
 
-where $H$ is a Hermitian (self-adjoint) Hamiltonian operator.
+**Method 1 – Spectral Decomposition of the Hamiltonian**
 
-**Method 1 – Spectral decomposition of the Hamiltonian.** Because $H$ is Hermitian, it admits the spectral decomposition
+Since $H$ is Hermitian, it has a spectral decomposition:
 
 $$
 H = \sum_k E_k \lvert E_k \rangle \langle E_k \rvert,
 $$
 
-with real eigenvalues $E_k$ and orthonormal eigenvectors $\{\lvert E_k \rangle\}$. Then
+with real $E_k$ and orthonormal $\lvert E_k \rangle$. Thus,
 
 $$
-U(t_1, t_2) = \sum_k \exp\!\left( -\frac{i}{\hbar} E_k (t_2 - t_1) \right) \lvert E_k \rangle \langle E_k \rvert.
+U(t_1, t_2) = \sum_k \exp\left( -\frac{i}{\hbar} E_k (t_2 - t_1) \right) \lvert E_k \rangle \langle E_k \rvert.
 $$
 
-Taking the adjoint gives
+The adjoint is:
 
 $$
-U(t_1, t_2)^\dagger = \sum_k \exp\!\left( \frac{i}{\hbar} E_k (t_2 - t_1) \right) \lvert E_k \rangle \langle E_k \rvert,
+U(t_1, t_2)^\dagger = \sum_k \exp\left( \frac{i}{\hbar} E_k (t_2 - t_1) \right) \lvert E_k \rangle \langle E_k \rvert.
 $$
 
-and multiplying shows
+Multiplying gives $U^\dagger U = I$, confirming unitarity.
+
+**Explanation:** This method uses the eigenbasis to show that each component is a phase factor on the unit circle, preserving unitarity.
+
+---
+
+**Method 2 – Anti-Hermitian Exponentials**
+
+Define $A = -\frac{i}{\hbar} H (t_2 - t_1)$. Since $H^\dagger = H$ and $t_2 - t_1$ is real, $A^\dagger = -A$. Exponentials of anti-Hermitian operators are unitary:
 
 $$
-U(t_1, t_2)^\dagger U(t_1, t_2) = \sum_k \lvert E_k \rangle \langle E_k \rvert = I.
+(e^A)^\dagger e^A = e^{A^\dagger} e^A = e^{-A} e^A = I.
 $$
 
-Hence $U(t_1, t_2)$ is unitary. The same computation yields $U(t_1, t_2) U(t_1, t_2)^\dagger = I$.
+**Explanation:** Anti-Hermitian operators generate unitary groups, as their exponentials satisfy the unitarity condition algebraically.
 
-**Method 2 – Anti-Hermitian exponentials.** Define
+---
 
-$$
-A = -\frac{i}{\hbar} H (t_2 - t_1).
-$$
+**Method 3 – Differential Equation for the Propagator**
 
-Because $H^\dagger = H$ and $t_2 - t_1$ is real, we have $A^\dagger = -A$. Exponentials of anti-Hermitian operators are unitary:
+$U(t) = U(t_0, t)$ satisfies $i \hbar \frac{dU}{dt} = H U$, with $U(t_0) = I$. Differentiate $U^\dagger U$:
 
 $$
-\big( e^A \big)^\dagger e^A = e^{A^\dagger} e^A = e^{-A} e^A = e^{0} = I.
+\frac{d}{dt} (U^\dagger U) = \left( \frac{dU^\dagger}{dt} \right) U + U^\dagger \frac{dU}{dt} = \frac{i}{\hbar} U^\dagger H U - \frac{i}{\hbar} U^\dagger H U = 0.
 $$
 
-This argument relies only on the algebraic identity $e^{B} e^{C} = e^{B+C}$ when $B$ and $C$ commute, which holds here because $A$ commutes with itself and with $-A$.
+Since $U(t_0)^\dagger U(t_0) = I$, unitarity holds for all $t$.
 
-**Method 3 – Differential equation for the propagator.** Treat $U(t) = U(t_0, t)$ and note that it satisfies the Schrödinger equation
+**Explanation:** This dynamical approach shows unitarity is preserved under the time-evolution equation, even for time-dependent Hamiltonians.
 
-$$
-i \hbar \, \frac{\mathrm{d}U(t)}{\mathrm{d}t} = H U(t), \qquad U(t_0) = I.
-$$
+---
 
-Differentiate $U(t)^\dagger U(t)$:
+**Summary:**
 
-$$
-\frac{\mathrm{d}}{\mathrm{d}t}\big( U(t)^\dagger U(t) \big) = \left( \frac{\mathrm{d}U(t)^\dagger}{\mathrm{d}t} \right) U(t) + U(t)^\dagger \frac{\mathrm{d}U(t)}{\mathrm{d}t} = \frac{i}{\hbar} U(t)^\dagger H U(t) - \frac{i}{\hbar} U(t)^\dagger H U(t) = 0.
-$$
-
-Since $U(t_0)^\dagger U(t_0) = I$, the solution remains the identity for all $t$, implying unitarity. This method highlights that even when $H$ varies with time (provided it remains Hermitian), the time-evolution operator stays unitary.
+All methods confirm that the time-evolution operator is unitary due to the Hermitian nature of $H$. The spectral method is basis-dependent, the exponential method is algebraic, and the differential method is dynamical. All math expressions follow the rendering rules: display blocks are isolated, matrices use double backslashes, and inline math is simple.

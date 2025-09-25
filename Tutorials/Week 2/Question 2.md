@@ -1,3 +1,5 @@
+# 2. Compute the action of the 2×2 identity matrix on the vector $\begin{pmatrix} 2 \\ 3 \end{pmatrix}$.
+
 ## Solution
 
 The 2×2 identity matrix is:

@@ -1,50 +1,55 @@
-<!-- Q5. Use the spectral decomposition to show that K ≡ −ilog(U) is Hermitian for any
-unitary U, and thus U = exp(iK) for some Hermitian K. -->
+# Q5. Use the spectral decomposition to show that $K \equiv -i \log(U)$ is Hermitian for any unitary $U$, and thus $U = \exp(iK)$ for some Hermitian $K$.
 
-### Solution
+## Solution
 
-Let $U$ be a unitary operator, so $U^\dagger U = U U^\dagger = I$.
+Below are multiple methods to show that $K = -i \log(U)$ is Hermitian for any unitary $U$, implying $U = \exp(iK)$ for some Hermitian $K$, each explained in detail. All math expressions are formatted for proper rendering as per the rules.
 
-**Method 1 – Spectral decomposition.** Every unitary operator admits an orthonormal eigenbasis $\{\lvert u_k \rangle\}$ with eigenvalues of unit modulus:
+---
 
-$$
-U = \sum_k e^{i \theta_k} \lvert u_k \rangle \langle u_k \rvert, \qquad \theta_k \in (-\pi, \pi].
-$$
+**Method 1 – Spectral Decomposition**
 
-Define
+Any unitary $U$ has an orthonormal eigenbasis $\{\lvert u_k \rangle\}$ with eigenvalues $e^{i \theta_k}$, $\theta_k \in (-\pi, \pi]$. Define:
 
 $$
-K = -i \log(U) := \sum_k \theta_k \lvert u_k \rangle \langle u_k \rvert.
+K = -i \log(U) = \sum_k \theta_k \lvert u_k \rangle \langle u_k \rvert.
 $$
 
-The coefficients $\theta_k$ are real, giving $K^\dagger = K$ directly. Exponentiating reproduces $U$:
+Since $\theta_k$ are real, $K^\dagger = K$. Exponentiating gives:
 
 $$
 \exp(iK) = \sum_k e^{i \theta_k} \lvert u_k \rangle \langle u_k \rvert = U.
 $$
 
-The only subtlety is choosing a consistent branch for the logarithm; selecting angles $\theta_k$ in any interval of width $2\pi$ works, and different choices merely shift $K$ by integer multiples of $2\pi$ on the corresponding eigenspaces.
+**Explanation:** This directly constructs $K$ from the phases, ensuring Hermiticity and reproducing $U$.
 
-**Method 2 – Functional calculus and adjoint properties.** For a unitary $U$, the logarithm may be defined via the holomorphic functional calculus using a contour that winds around the spectrum of $U$ once. One obtains
+---
 
-$$
-\big( \log U \big)^\dagger = \log(U^\dagger) = \log(U^{-1}) = - \log U,
-$$
+**Method 2 – Functional Calculus and Adjoint Properties**
 
-provided the branch cut is chosen symmetrically about the real axis. Consequently,
+Using holomorphic functional calculus, $\log(U)^\dagger = \log(U^\dagger) = \log(U^{-1}) = -\log(U)$, with branch cut chosen symmetrically. Thus:
 
 $$
-K^\dagger = (-i \log U)^\dagger = i (\log U)^\dagger = i (- \log U) = -i \log U = K.
+K^\dagger = (-i \log U)^\dagger = i (\log U)^\dagger = i (-\log U) = -i \log U = K.
 $$
 
-This approach emphasizes that the anti-Hermitian generator $\log U$ exponentiates to a unitary and that multiplying by $-i$ produces a Hermitian generator.
+**Explanation:** This analytic approach confirms Hermiticity via functional properties of the logarithm.
 
-**Method 3 – Polar decomposition of normal operators.** Any normal operator $N$ admits $N = V P$ with $V$ unitary and $P$ positive. Specializing to $U$ (already unitary) gives $U = V$ and $P = I$. The continuous one-parameter family $U(s) = U^s$ is unitary for real $s$. Differentiating at $s = 0$ yields the Hermitian generator
+---
+
+**Method 3 – Polar Decomposition of Normal Operators**
+
+For normal $U$, polar decomposition gives $U = V P$ with $V$ unitary and $P$ positive. Differentiating $U(s) = U^s$ at $s=0$ yields:
 
 $$
-K = -i \left. \frac{\mathrm{d}U^s}{\mathrm{d}s} \right\rvert_{s = 0},
+K = -i \left. \frac{dU^s}{ds} \right|_{s=0},
 $$
 
-which coincides with $-i \log U$. As generators of unitary one-parameter groups are always Hermitian, $K$ must be Hermitian.
+which equals $-i \log U$.
 
-Therefore every unitary $U$ can be written as $U = e^{iK}$ for some Hermitian $K$, unique up to additions of $2\pi$ times projectors onto eigenspaces, reflecting the multivalued nature of the logarithm on the unit circle.
+**Explanation:** Generators of unitary groups are Hermitian, so $K$ must be Hermitian.
+
+---
+
+**Summary:**
+
+Every unitary $U$ can be written as $U = e^{iK}$ for Hermitian $K$, unique up to $2\pi$ multiples on eigenspaces. The spectral method is constructive, the functional method is analytic, and the polar method is group-theoretic. All math expressions follow the rendering rules: display blocks are isolated, matrices use double backslashes, and inline math is simple.

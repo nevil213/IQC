@@ -1,4 +1,4 @@
-<!-- 1. Show that the set {(1,1),(1,−1)} is linearly independent in R2. -->
+# 1. Show that the set $\{(1,1), (1,-1)\}$ is linearly independent in $\mathbb{R}^2$.
 
 ## Solution
 

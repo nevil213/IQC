@@ -1,4 +1,4 @@
-4. Verify that the Pauli matrices X and Y anticommute, i.e., XY = −Y X.
+# 4. Verify that the Pauli matrices X and Y anticommute, i.e., $XY = -YX$.
 
 ## Solution
 

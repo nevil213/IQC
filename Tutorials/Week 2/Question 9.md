@@ -1,5 +1,4 @@
-<!-- 9. Let |ψ⟩ = (|0⟩+ |1⟩)/√2. Write out |ψ⟩⊗2and |ψ⟩⊗3explicitly, both in terms of
-tensor products like |0⟩|1⟩, and using the Kronecker product. -->
+# 9. Let $|\psi\rangle = \frac{1}{\sqrt{2}} (|0\rangle + |1\rangle)$. Write out $|\psi\rangle^{\otimes 2}$ and $|\psi\rangle^{\otimes 3}$ explicitly, both in terms of tensor products like $|0\rangle|1\rangle$, and using the Kronecker product.
 
 ## Solution
 
@@ -9,7 +8,7 @@ $$
 |\psi\rangle = \frac{1}{\sqrt{2}} (|0\rangle + |1\rangle)
 $$
 
-### |ψ⟩⊗2
+### $|\psi\rangle^{\otimes 2}$
 
 In terms of tensor products:
 
@@ -17,7 +16,7 @@ $$
 |\psi\rangle \otimes |\psi\rangle = \frac{1}{\sqrt{2}} (|0\rangle + |1\rangle) \otimes \frac{1}{\sqrt{2}} (|0\rangle + |1\rangle) = \frac{1}{2} \left( |0\rangle|0\rangle + |0\rangle|1\rangle + |1\rangle|0\rangle + |1\rangle|1\rangle \right) = \frac{1}{2} \left( |00\rangle + |01\rangle + |10\rangle + |11\rangle \right)
 $$
 
-Using Kronecker product (assuming column vectors $|0\rangle = \begin{pmatrix} 1 \\ 0 \end{pmatrix}$, $|1\rangle = \begin{pmatrix} 0 \\ 1 \end{pmatrix}$):
+Using Kronecker product (assuming column vectors $|0\rangle = \begin{pmatrix} 1 \\\\ 0 \end{pmatrix}$, $|1\rangle = \begin{pmatrix} 0 \\\\ 1 \end{pmatrix}$):
 
 $$
 |\psi\rangle = \frac{1}{\sqrt{2}} \begin{pmatrix}
@@ -27,7 +26,7 @@ $$
 $$
 
 $$
-|\psi\rangle \otimes |\psi\rangle = \frac{1}{\sqrt{2}} \begin{pmatrix} 1 \\ 1 \end{pmatrix} \otimes \frac{1}{\sqrt{2}} \begin{pmatrix} 1 \\ 1 \end{pmatrix} = \frac{1}{2} \begin{pmatrix}
+|\psi\rangle \otimes |\psi\rangle = \frac{1}{\sqrt{2}} \begin{pmatrix} 1 \\\\ 1 \end{pmatrix} \otimes \frac{1}{\sqrt{2}} \begin{pmatrix} 1 \\\\ 1 \end{pmatrix} = \frac{1}{2} \begin{pmatrix}
 1 \\\\
 1 \\\\
 1 \\\\
@@ -35,7 +34,7 @@ $$
 \end{pmatrix}
 $$
 
-### |ψ⟩⊗3
+### $|\psi\rangle^{\otimes 3}$
 
 In terms of tensor products:
 
@@ -50,7 +49,7 @@ $$
 Using Kronecker product:
 
 $$
-|\psi\rangle \otimes |\psi\rangle \otimes |\psi\rangle = \frac{1}{\sqrt{2}} \begin{pmatrix} 1 \\ 1 \end{pmatrix} \otimes \frac{1}{\sqrt{2}} \begin{pmatrix} 1 \\ 1 \end{pmatrix} \otimes \frac{1}{\sqrt{2}} \begin{pmatrix} 1 \\ 1 \end{pmatrix} = \frac{1}{2\sqrt{2}} \begin{pmatrix}
+|\psi\rangle \otimes |\psi\rangle \otimes |\psi\rangle = \frac{1}{\sqrt{2}} \begin{pmatrix} 1 \\\\ 1 \end{pmatrix} \otimes \frac{1}{\sqrt{2}} \begin{pmatrix} 1 \\\\ 1 \end{pmatrix} \otimes \frac{1}{\sqrt{2}} \begin{pmatrix} 1 \\\\ 1 \end{pmatrix} = \frac{1}{2\sqrt{2}} \begin{pmatrix}
 1 \\\\
 1 \\\\
 1 \\\\

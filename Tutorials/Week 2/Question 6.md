@@ -1,4 +1,4 @@
-<!-- 6. Show that the Pauli matrices are Hermitian and unitary. -->
+# 6. Show that the Pauli matrices are Hermitian and unitary.
 
 ## Solution
 

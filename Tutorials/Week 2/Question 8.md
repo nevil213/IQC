@@ -1,5 +1,4 @@
-<!-- 8. Let V be the subspace of R3spanned by {(1,0,1),(0,1,1),(1,1,2)}. Find a basis
-for V and compute its dimension. -->
+# 8. Let $V$ be the subspace of $\mathbb{R}^3$ spanned by $\{(1,0,1), (0,1,1), (1,1,2)\}$. Find a basis for $V$ and compute its dimension.
 
 ## Solution
 

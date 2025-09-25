@@ -1,7 +1,4 @@
-<!-- 11. Show that the transpose, complex conjugation, and adjoint operations distribute
-over the tensor product:
-(A ⊗B)∗ = A∗ ⊗B∗; (A ⊗B)T = AT ⊗BT ; (A ⊗B)† = A† ⊗B†.
-2 -->
+# 11. Show that the transpose, complex conjugation, and adjoint operations distribute over the tensor product: $(A \otimes B)^* = A^* \otimes B^*$; $(A \otimes B)^T = A^T \otimes B^T$; $(A \otimes B)^\dagger = A^\dagger \otimes B^\dagger$.
 
 ## Solution
 

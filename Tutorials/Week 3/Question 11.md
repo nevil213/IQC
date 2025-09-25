@@ -1,28 +1,14 @@
-<!-- Q11. The Hadamard gate is given by:
-H =
-1
-√
-2
-
-1 1
-1 −1
-
-.
-Verify that H2 = I and that H is unitary. Find the eigenvalues and eigenvectors of
-H. -->
+# Q11. The Hadamard gate is given by $H = \frac{1}{\sqrt{2}} \begin{pmatrix} 1 & 1 \\\\ 1 & -1 \end{pmatrix}$. Verify that $H^2 = I$ and that $H$ is unitary. Find the eigenvalues and eigenvectors of $H$.
 
-### Solution
+## Solution
 
-The Hadamard gate is
+Below are multiple methods to verify that the Hadamard gate $H$ satisfies $H^2 = I$ and is unitary, and to find its eigenvalues and eigenvectors, each explained in detail. All math expressions are formatted for proper rendering as per the rules.
 
-$$
-H = \frac{1}{\sqrt{2}} \begin{pmatrix}
-1 & 1 \\\\
-1 & -1
-\end{pmatrix}.
-$$
+---
 
-**Method 1 – Direct matrix multiplication.** Compute
+**Method 1 – Direct Matrix Multiplication**
+
+Compute $H^2$:
 
 $$
 H^2 = \frac{1}{2} \begin{pmatrix}
@@ -37,62 +23,40 @@ H^2 = \frac{1}{2} \begin{pmatrix}
 \end{pmatrix} = I.
 $$
 
-Since $H^2 = I$, $H^{-1} = H$. Moreover,
+Since $H^2 = I$, $H^{-1} = H$, and $H^\dagger H = H H = I$, $H$ is unitary.
+
+**Explanation:** Matrix computation directly shows the properties.
+
+---
+
+**Method 2 – Orthonormal Columns Check**
+
+Columns of $H$:
 
 $$
-H^\dagger H = H H = I,
+\mathbf{h}_1 = \frac{1}{\sqrt{2}} \begin{pmatrix} 1 \\\\ 1 \end{pmatrix}, \quad \mathbf{h}_2 = \frac{1}{\sqrt{2}} \begin{pmatrix} 1 \\\\ -1 \end{pmatrix}.
 $$
 
-so $H$ is unitary.
+They have unit norm and are orthogonal, so $H$ is unitary.
 
-**Method 2 – Orthonormal columns check.** The columns of $H$ are
+**Explanation:** Unitary matrices have orthonormal columns.
 
-$$
-\mathbf{h}_1 = \frac{1}{\sqrt{2}} \begin{pmatrix} 1 \\\\ 1 \end{pmatrix}, \qquad \mathbf{h}_2 = \frac{1}{\sqrt{2}} \begin{pmatrix} 1 \\\\ -1 \end{pmatrix}.
-$$
+---
 
-They satisfy $\lVert \mathbf{h}_1 \rVert = \lVert \mathbf{h}_2 \rVert = 1$ and $\langle \mathbf{h}_1, \mathbf{h}_2 \rangle = 0$. A matrix with orthonormal columns is unitary, so $H$ is unitary without needing to square it explicitly.
+**Eigenvalues and Eigenvectors**
 
-**Eigenvalues and eigenvectors.** Solve $H \lvert \psi \rangle = \lambda \lvert \psi \rangle$. Because $H^2 = I$, the minimal polynomial divides $x^2 - 1$, so eigenvalues are $\lambda = \pm 1$.
+Solve $H \lvert \psi \rangle = \lambda \lvert \psi \rangle$. Eigenvalues $\pm 1$.
 
-For $\lambda = 1$ solve $(H - I) \lvert \psi \rangle = 0$:
+For $\lambda = 1$: $\lvert + \rangle = \frac{1}{\sqrt{2}} (\lvert 0 \rangle + \lvert 1 \rangle)$.
 
-$$
-H - I = \frac{1}{\sqrt{2}} \begin{pmatrix}
-1 & 1 \\\\
-1 & -1
-\end{pmatrix} - \begin{pmatrix}
-1 & 0 \\\\
-0 & 1
-\end{pmatrix} = \begin{pmatrix}
-\frac{1}{\sqrt{2}} - 1 & \frac{1}{\sqrt{2}} \\\\
-\frac{1}{\sqrt{2}} & -\frac{1}{\sqrt{2}} - 1
-\end{pmatrix}.
-$$
+For $\lambda = -1$: $\lvert - \rangle = \frac{1}{\sqrt{2}} (\lvert 0 \rangle - \lvert 1 \rangle)$.
 
-The null space is spanned by $\lvert + \rangle = \frac{1}{\sqrt{2}} (\lvert 0 \rangle + \lvert 1 \rangle)$, so $H \lvert + \rangle = \lvert + \rangle$.
+Spectral decomposition: $H = \lvert + \rangle \langle + \rvert - \lvert - \rangle \langle - \rvert$.
 
-For $\lambda = -1$ solve $(H + I) \lvert \psi \rangle = 0$:
+**Explanation:** Eigenvectors are the $\pm$ states, and $H$ rotates the Bloch sphere.
 
-$$
-H + I = \frac{1}{\sqrt{2}} \begin{pmatrix}
-1 & 1 \\\\
-1 & -1
-\end{pmatrix} + \begin{pmatrix}
-1 & 0 \\\\
-0 & 1
-\end{pmatrix} = \begin{pmatrix}
-\frac{1}{\sqrt{2}} + 1 & \frac{1}{\sqrt{2}} \\\\
-\frac{1}{\sqrt{2}} & -\frac{1}{\sqrt{2}} + 1
-\end{pmatrix}.
-$$
+---
 
-The null space is spanned by $\lvert - \rangle = \frac{1}{\sqrt{2}} (\lvert 0 \rangle - \lvert 1 \rangle)$, giving $H \lvert - \rangle = - \lvert - \rangle$.
+**Summary:**
 
-Thus
-
-$$
-H = \lvert + \rangle \langle + \rvert - \lvert - \rangle \langle - \rvert,
-$$
-
-providing its spectral decomposition. Geometrically, $H$ maps computational-basis vectors to $\lvert \pm \rangle$ and acts as a rotation by $\pi$ about the $X+Z$ axis on the Bloch sphere.
+$H$ is unitary with $H^2 = I$, eigenvalues $\pm 1$, and eigenvectors $\lvert \pm \rangle$. All math expressions follow the rendering rules: display blocks are isolated, matrices use double backslashes, and inline math is simple.

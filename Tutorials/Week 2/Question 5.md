@@ -1,5 +1,4 @@
-<!-- 5. Show that all eigenvalues of a unitary matrix have modulus 1, i.e., they can be
-written in the form eiθ for some real θ. -->
+# 5. Show that all eigenvalues of a unitary matrix have modulus 1, i.e., they can be written in the form $e^{i\theta}$ for some real $\theta$.
 
 ## Solution
 

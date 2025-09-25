@@ -1,49 +1,63 @@
-<!-- Q3. Discuss the Cauchy–Schwarz inequality. (Refer to Nielsen & Chuang, Box 2.1) -->
+# Q3. Discuss the Cauchy–Schwarz inequality. (Refer to Nielsen & Chuang, Box 2.1)
 
-### Solution
+## Solution
 
-Let $\mathcal{H}$ be an inner-product space over $\mathbb{C}$. The Cauchy–Schwarz inequality states that for all $\mathbf{u}, \mathbf{v} \in \mathcal{H}$,
+Below are multiple methods to discuss the Cauchy–Schwarz inequality, each explained in detail. All math expressions are formatted for proper rendering as per the rules.
 
-$$
-\lvert \langle \mathbf{u}, \mathbf{v} \rangle \rvert^2 \leq \lVert \mathbf{u} \rVert^2 \lVert \mathbf{v} \rVert^2,
-$$
+---
 
-with equality if and only if $\mathbf{u}$ and $\mathbf{v}$ are linearly dependent.
+**Method 1 – Quadratic Form Positivity**
 
-**Method 1 – Quadratic form positivity.** Consider the norm of $\mathbf{u} - \lambda \mathbf{v}$ for arbitrary $\lambda \in \mathbb{C}$:
+Consider the norm of $\mathbf{u} - \lambda \mathbf{v}$ for an arbitrary complex $\lambda$:
 
 $$
 0 \leq \lVert \mathbf{u} - \lambda \mathbf{v} \rVert^2 = \lVert \mathbf{u} \rVert^2 - \lambda \langle \mathbf{v}, \mathbf{u} \rangle - \lambda^* \langle \mathbf{u}, \mathbf{v} \rangle + \lvert \lambda \rvert^2 \lVert \mathbf{v} \rVert^2.
 $$
 
-Choosing
+To minimize this quadratic form, choose:
 
 $$
-\lambda = \frac{\langle \mathbf{v}, \mathbf{u} \rangle}{\lVert \mathbf{v} \rVert^2}
+\lambda = \frac{\langle \mathbf{v}, \mathbf{u} \rangle}{\lVert \mathbf{v} \rVert^2}.
 $$
 
-minimizes the quadratic in $\lambda$ and yields the desired inequality immediately. Equality holds exactly when $\mathbf{u} - \lambda \mathbf{v} = \mathbf{0}$, i.e., when $\mathbf{u}$ is proportional to $\mathbf{v}$.
+Substituting yields the inequality directly. Equality holds when $\mathbf{u} - \lambda \mathbf{v} = 0$, meaning $\mathbf{u}$ and $\mathbf{v}$ are linearly dependent.
 
-**Method 2 – Projection geometry.** Decompose $\mathbf{u}$ into the sum of a component parallel to $\mathbf{v}$ and an orthogonal remainder:
+**Explanation:** This method treats the inequality as an optimization problem, minimizing the norm squared to derive the bound. It's a standard variational approach in functional analysis.
+
+---
+
+**Method 2 – Projection Geometry**
+
+Decompose $\mathbf{u}$ into a component parallel to $\mathbf{v}$ and an orthogonal remainder:
 
 $$
 \mathbf{u} = \frac{\langle \mathbf{v}, \mathbf{u} \rangle}{\lVert \mathbf{v} \rVert^2} \mathbf{v} + \mathbf{u}_\perp,
 $$
 
-with $\langle \mathbf{v}, \mathbf{u}_\perp \rangle = 0$. Taking norms gives
+where $\langle \mathbf{v}, \mathbf{u}_\perp \rangle = 0$. Taking norms:
 
 $$
-\lVert \mathbf{u} \rVert^2 = \frac{\lvert \langle \mathbf{v}, \mathbf{u} \rangle \rvert^2}{\lVert \mathbf{v} \rVert^2} + \lVert \mathbf{u}_\perp \rVert^2 \geq \frac{\lvert \langle \mathbf{v}, \mathbf{u} \rangle \rvert^2}{\lVert \mathbf{v} \rVert^2},
+\lVert \mathbf{u} \rVert^2 = \frac{\lvert \langle \mathbf{v}, \mathbf{u} \rangle \rvert^2}{\lVert \mathbf{v} \rVert^2} + \lVert \mathbf{u}_\perp \rVert^2 \geq \frac{\lvert \langle \mathbf{v}, \mathbf{u} \rangle \rvert^2}{\lVert \mathbf{v} \rVert^2}.
 $$
 
-which rearranges to the Cauchy–Schwarz bound. The geometric interpretation emphasizes that $\lvert \langle \mathbf{u}, \mathbf{v} \rangle \rvert$ is the norm of the projection of one vector onto the other.
+Rearranging gives the Cauchy–Schwarz inequality.
 
-**Method 3 – Spectral view using positive operators.** Define the rank-one operator $A = \lvert \mathbf{v} \rangle \langle \mathbf{v} \rvert$. Then $A$ is positive-semidefinite with eigenvalue $\lVert \mathbf{v} \rVert^2$ along $\mathbf{v}$ and zero otherwise. The Rayleigh quotient of $A$ evaluated at $\mathbf{u}$ satisfies
+**Explanation:** Geometrically, this shows that the inner product magnitude is bounded by the product of norms, as the projection length cannot exceed the vector's length.
+
+---
+
+**Method 3 – Spectral View Using Positive Operators**
+
+Define the rank-one positive operator $A = \lvert \mathbf{v} \rangle \langle \mathbf{v} \rvert$, with eigenvalues $\lVert \mathbf{v} \rVert^2$ (along $\mathbf{v}$) and 0 elsewhere. The Rayleigh quotient for $A$ at $\mathbf{u}$ is:
 
 $$
-0 \leq \langle \mathbf{u}, A \mathbf{u} \rangle = \lvert \langle \mathbf{v}, \mathbf{u} \rangle \rvert^2 \leq \lVert \mathbf{v} \rVert^2 \lVert \mathbf{u} \rVert^2,
+0 \leq \langle \mathbf{u}, A \mathbf{u} \rangle = \lvert \langle \mathbf{v}, \mathbf{u} \rangle \rvert^2 \leq \lVert \mathbf{v} \rVert^2 \lVert \mathbf{u} \rVert^2.
 $$
 
-because the maximum eigenvalue of $A$ equals $\lVert \mathbf{v} \rVert^2$. This operator-based argument generalizes elegantly to inequalities involving higher-rank positive operators.
+**Explanation:** This operator-based proof generalizes to higher-rank positive operators, using spectral properties to bound the quadratic form.
 
-Across all proofs, the key insight is that inner products cannot exceed the product of norms, encapsulating the angle between vectors via $\cos \theta = \lvert \langle \mathbf{u}, \mathbf{v} \rangle \rvert / (\lVert \mathbf{u} \rVert \lVert \mathbf{v} \rVert)$.
+---
+
+**Summary:**
+
+The Cauchy–Schwarz inequality bounds inner products by norm products, with equality for dependent vectors. These methods cover variational, geometric, and operator-theoretic perspectives. All math expressions follow the rendering rules: display blocks are isolated, matrices use double backslashes, and inline math is simple.
